@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Financial-Profile Form</title>
+    <style>
+        .imgcontainer {
+        text-align: center;
+        margin: 7px  0 6px 0;
+        }
+
+        img.avatar {
+        width: 7%;
+        border-radius: 7%;
+        }
+
+
+        button {
+            margin: 10px;
+        }
+
+
+        #main{
+            background-color: darkblue;
+            color: azure;
+        }
+        @media only screen
+        and (min-device-width : 280px)
+        and (max-device-width : 480px) {
+            table, td, tr {
+                display: block;
+            }
+        }
+    </style>
+
+<body>
+
+
+        <div class="imgcontainer">
+            <img src="Images/Logo1.png" alt="Saylani Logo" class="avatar">
+        </div>
+<div id="main">
+        <h1 align="center">StudentFinancialProfile Form</h1>
+</div>
+
+
+		<form id="myForm">
+			<center>
+        <table>
+			<center>
+
+			<tr>
+                <td><label for="Std-FinPro-ID">Std-FinPro-ID:</label></td>
+                <td><input type="text" name="Std-FinPro-ID" maxlength="45" placeholder="Enter Std-FinPro-ID" />
+                </td>
+				<td><label for="Cat-ID"></label>Cat-ID:</td>
+				<td><input type="text" name="Cat-ID" maxlength="45" placeholder="Enter Cat-ID" />
+                </td>
+
+            <tr>
+                <td><label for="Monthly-Fee">Monthly-Fee:</label></td>
+                <td><input type="text" name="Monthly-Fee" maxlength="45" placeholder="Enter Monthly-Fee" />
+                </td>
+				<td><label for="Sibling-Discount">Sibling-Discount</label></td>
+				<td><input type="text" name="Sibling-Discount" maxlength="45" placeholder="Enter Sibling-Discount" />
+                </td>
+            <tr>
+                <td><label for="Fee-Uniform">Fee-Uniform:</label></td>
+                <td><input type="text" name="Fee-Uniform" maxlength="45" placeholder="Enter Fee-Uniform" />
+                </td>
+                <td><label for="Free-TextBooks">Free-Textbooks</label></td>
+                <td><input type="text" name="Free-TextBoooks" maxlength="45" placeholder="Enter Free-TextBooks" />
+                </td>
+            <tr>
+                <td><label for="First-50">First-50:</label></td>
+                <td><input type="text" name="First-50" maxlength="45" placeholder="Enter First-50" />
+                </td>
+                <td><label for="OOS">OOS:</label></td>
+                <td><input type="text" name="OSS" maxlength="45" placeholder="Enter OOS" />
+                </td>
+            <tr>
+                <td><label for="Disabled">Disabled:</label></td>
+                <td><input type="text" name="Disabled" maxlength="45" placeholder="Disabled" />
+                </td>
+                <td><label for="Orphan">Orphan:</label></td>
+                <td><input type="text" name="Orphan" maxlength="45" placeholder="Enter Orphan" />
+                </td>
+            <tr>
+                <td><label for="Zakat">Zakat:</label></td>
+                <td><input type="text" name="Zakat" maxlength="45" placeholder="Enter Zakat" />
+                </td>
+                </table>
+			</center>
+        <center>
+            <div>
+                <button type="submit">Save</button>
+                <button type="reset">Reset</button>
+            </div>
+        </center>
+        </form>
+
+
+</body>
+</html>
+
+<script>
+    const myForm = document.getElementById("myForm")
+    myForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("form has been submitted");
+        const request = new XMLHttpRequest();
+        request.open("post", "login.php");
+        request.onload = function () {
+            console.log(request.responseText);
+        }
+        request.send(new FormData(myForm));
+    });
+</script>
