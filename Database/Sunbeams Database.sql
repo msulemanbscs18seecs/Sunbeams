@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `Boys-Uniforms` (
 	PRIMARY KEY(`Boys-Unifrm-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Girls-Uniforms` (
-	`Grl-Unfrm-ID`	INTEGER NOT NULL,
+	`Grl-Unfrm-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL,
 	`Unfrm-Grl 18`	INTEGER,
 	`Unfrm-Grl 20`	INTEGER,
@@ -408,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `Std-Monthly-Fee` (
 	PRIMARY KEY(`Fee-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Exam` (
-	`Exam-ID`	INTEGER,
+	`Exam-ID`	INTEGER AUTO_INCREMENT,
 	`Exam-Year`	INTEGER,
 	`Exam-Term`	VARCHAR(30),
 	`Exam-Month`	VARCHAR(30),
