@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS `Sunbeams Database`;
-CREATE TABLE IF NOT EXISTS `I-And-E-Exp` (`I-And-E-Exp-ID` INTEGER PRIMARY KEY NOT NULL, `Std-Fee-SUM` INTEGER, `Total-Dues` INTEGER, `Monthly-Exp` INTEGER, `Rent-for-Building` INTEGER, `Utilities` INTEGER, `Empl-Sal-Sum` INTEGER, `Refreshment-Supply` INTEGER, `Total-Expenses` INTEGER, `Photo-Copy&Stationary` INTEGER, `Equity-Maintainance` INTEGER, `Dues-not-Received` INTEGER, `Stationary` INTEGER, `Uniform` INTEGER,  `TextBooks` INTEGER, `other-exp` INTEGER, `Canteen` INTEGER, `Month` VARCHAR(15), `Year` INTEGER, `Grant-from-HO` INTEGER, `Total-Income` INTEGER);
+CREATE TABLE IF NOT EXISTS `I-And-E-Exp` (`I-And-E-Exp-ID` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, `Std-Fee-SUM` INTEGER, `Total-Dues` INTEGER, `Monthly-Exp` INTEGER, `Rent-for-Building` INTEGER, `Utilities` INTEGER, `Empl-Sal-Sum` INTEGER, `Refreshment-Supply` INTEGER, `Total-Expenses` INTEGER, `Photo-Copy&Stationary` INTEGER, `Equity-Maintainance` INTEGER, `Dues-not-Received` INTEGER, `Stationary` INTEGER, `Uniform` INTEGER,  `TextBooks` INTEGER, `other-exp` INTEGER, `Canteen` INTEGER, `Month` VARCHAR(15), `Year` INTEGER, `Grant-from-HO` INTEGER, `Total-Income` INTEGER);
 CREATE TABLE IF NOT EXISTS `Office Details` (
-	`Off-ID`	INTEGER NOT NULL UNIQUE,
+	`Off-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Office-Name`	VARCHAR(30) NOT NULL,
 	`Office-Type`	VARCHAR(30),
 	`All-SCLDET-ID`	INTEGER,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `Office Details` (
 	PRIMARY KEY(`Off-ID`)
 );
 CREATE TABLE IF NOT EXISTS `School Detail` (
-	`Scl-ID`	INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
+	`Scl-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Scl-Name`	INTEGER NOT NULL,
 	`Scl-Add`	VARCHAR(50),
 	`Scl-Village`	VARCHAR(30),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `School Detail` (
 	PRIMARY KEY(`Scl-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Salary Slips` (
-	`SS-ID`	INTEGER,
+	`SS-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Tch-ID`	INTEGER,
 	`Salary-Month`	VARCHAR(15),
 	`Salary-Year`	INTEGER,
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`Comments`	VARCHAR(50),
 	PRIMARY KEY(`SS-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Teacher/Staff` (
-	`Tch_ID`	INTEGER NOT NULL UNIQUE,
+CREATE TABLE IF NOT EXISTS `Teacher-OR-Staff` (
+	`Tch_ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Scl-ID`	INTEGER NOT NULL,
 	`Tch-Name`	VARCHAR(30) NOT NULL,
 	`Tch-Gender`	VARCHAR(30) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `Donor` (
 	`Donor-City`	VARCHAR(15),
 	`Donor-Address`	VARCHAR(50),
 	`Donated-Amount-Figure`	INTEGER,
-	`Donor-ID`	INTEGER NOT NULL UNIQUE,
+	`Donor-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Letter-Sent`	VARCHAR(30) NOT NULL,
 	`Date-on-Letter`	VARCHAR(30) NOT NULL,
 	`Drawn-on-Bank`	VARCHAR(30),
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `Donor` (
 	PRIMARY KEY(`Donor-ID`)
 );
 CREATE TABLE IF NOT EXISTS `School Property` (
-	`Scl-Inven_ID`	INTEGER NOT NULL UNIQUE,
+	`Scl-Inven_ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`RT for Nur`	INTEGER,
 	`XSC for Nursery`	INTEGER,
 	`SC for Prep`	INTEGER,
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `School Property` (
 	PRIMARY KEY(`Scl-Inven_ID`)
 );
 CREATE TABLE IF NOT EXISTS `School Stock` (
-	`Stk-ID`	INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
+	`Stk-ID`	INTEGER NOT NULL  AUTO_INCREMENT,
 	`Scl-ID`	INTEGER NOT NULL,
 	`Txtbook-ID`	INTEGER,
 	`Stationary-ID`	INTEGER,
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `School Stock` (
 	PRIMARY KEY(`Stk-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Stationary` (
-	`Stationary-ID`	INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
+	`Stationary-ID`	INTEGER NOT NULL  AUTO_INCREMENT,
 	`Stk-ID`	INTEGER NOT NULL,
 	`Pencil`	INTEGER,
 	`Eraser`	INTEGER,
@@ -375,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `Swtr` (
 	PRIMARY KEY(`Swtr-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Student-Financial-Profile` (
-	`Std-FinPro-ID`	INTEGER,
+	`Std-FinPro-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-ID`	INTEGER,
 	`Monthly-Fee`	INTEGER,
 	`Sibling-Discount`	INTEGER,
@@ -389,13 +389,13 @@ CREATE TABLE IF NOT EXISTS `Student-Financial-Profile` (
 	PRIMARY KEY(`Std-FinPro-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Fee-Category` (
-	`Cat-ID`	INTEGER,
+	`Cat-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-Amount-Min`	INTEGER,
 	`Cat-Amount-Max`	INTEGER,
 	PRIMARY KEY(`Cat-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Std-Monthly-Fee` (
-	`Fee-ID`	INTEGER,
+	`Fee-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-ID`	INTEGER,
 	`Monthly-Fee`	INTEGER,
 	`Fee-Month`	VARCHAR(15),
@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `Exam` (
 	PRIMARY KEY(`Exam-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Examination-Result` (
-	`ExRes-ID`	INTEGER,
+	`ExRes-ID`	INTEGER AUTO_INCREMENT,
 	`Exam-ID`	INTEGER,
 	`Std-ID`	INTEGER,
 	`Class`	INTEGER,
@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `Examination-Result` (
 	FOREIGN KEY(`Exam-ID`) REFERENCES `Exam`(`Exam-ID`) ON DELETE RESTRICT
 );
 CREATE TABLE IF NOT EXISTS `Student` (
-	`Std-id`	INTEGER,
+	`Std-id`	INTEGER AUTO_INCREMENT,
 	`Scl-ID`	INTEGER,
 	`Std-name`	INTEGER,
 	`Std-Dob`	VARCHAR(30),
@@ -460,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `Student` (
 	FOREIGN KEY(`ExRes-ID`) REFERENCES `Examination-Result`(`ExRes-ID`) ON DELETE RESTRICT
 );
 CREATE TABLE IF NOT EXISTS `Project-Type` (
-	`Project-ID`	INTEGER,
+	`Project-ID`	INTEGER AUTO_INCREMENT,
 	`Project-Name`	VARCHAR(30),
 	`Partner-1`	VARCHAR(30),
 	`Partner-2`	VARCHAR(30),
@@ -468,18 +468,18 @@ CREATE TABLE IF NOT EXISTS `Project-Type` (
 	PRIMARY KEY(`Project-ID`)
 );
 CREATE TABLE IF NOT EXISTS `All-School-Details` (
-	`All-SclDet-ID`	INTEGER,
+	`All-SclDet-ID`	INTEGER AUTO_INCREMENT,
 	`Scl-ID`	INTEGER,
 	FOREIGN KEY(`Scl-ID`) REFERENCES `School Detail`(`Scl-ID`) ON DELETE RESTRICT,
 	PRIMARY KEY(`All-SclDet-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Activity` (
-	`Activity-ID`	INTEGER,
+	`Activity-ID`	INTEGER AUTO_INCREMENT,
 	`Activity-Name`	VARCHAR(30),
 	PRIMARY KEY(`Activity-ID`)
 );
 CREATE TABLE IF NOT EXISTS `All-Pictures` (
-	`All-Pictures-ID`	INTEGER,
+	`All-Pictures-ID`	INTEGER AUTO_INCREMENT,
 	`Activity-ID`	INTEGER,
 	`Scl-ID`	INTEGER,
 	`Picture`	INTEGER,
