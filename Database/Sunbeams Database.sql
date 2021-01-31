@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS `Sunbeams Database`;
-CREATE TABLE IF NOT EXISTS `I-And-E-Exp` (`I-And-E-Exp-ID` INTEGER PRIMARY KEY NOT NULL, `Std-Fee-SUM` INTEGER, `Total-Dues` INTEGER, `Monthly-Exp` INTEGER, `Rent-for-Building` INTEGER, Utilities INTEGER, `Empl-Sal-Sum` INTEGER, `Refreshment-Supply` INTEGER, `Total-Expenses` INTEGER, `Photo-Copy&Stationary` INTEGER, `Equity-Maintainance` INTEGER, `Dues-not-Received` INTEGER, Stationary INTEGER, Uniform INTEGER,  TEXTBooks INTEGER, `other-exp` INTEGER, `Canteen` INTEGER, `Month` VARCHAR(15), `Year` INTEGER, `Grant-from-HO` INTEGER, `Total-Income` INTEGER);
+CREATE TABLE IF NOT EXISTS `I-And-E-Exp` (`I-And-E-Exp-ID` INTEGER PRIMARY KEY NOT NULL, `Std-Fee-SUM` INTEGER, `Total-Dues` INTEGER, `Monthly-Exp` INTEGER, `Rent-for-Building` INTEGER, `Utilities` INTEGER, `Empl-Sal-Sum` INTEGER, `Refreshment-Supply` INTEGER, `Total-Expenses` INTEGER, `Photo-Copy&Stationary` INTEGER, `Equity-Maintainance` INTEGER, `Dues-not-Received` INTEGER, `Stationary` INTEGER, `Uniform` INTEGER,  `TextBooks` INTEGER, `other-exp` INTEGER, `Canteen` INTEGER, `Month` VARCHAR(15), `Year` INTEGER, `Grant-from-HO` INTEGER, `Total-Income` INTEGER);
 CREATE TABLE IF NOT EXISTS `Office Details` (
 	`Off-ID`	INTEGER NOT NULL UNIQUE,
 	`Office-Name`	VARCHAR(30) NOT NULL,
