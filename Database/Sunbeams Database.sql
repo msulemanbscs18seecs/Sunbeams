@@ -464,6 +464,7 @@ CREATE TABLE IF NOT EXISTS `Student` (
 	`Month`	INTEGER,
 	`Std-DOA`	VARCHAR(30),
 	`Std-name`	INTEGER,
+	`Std-rollno`	INTEGER,
 	`Std-class`	VARCHAR(30),
 	`Std-Dob`	VARCHAR(30),
 	`Gender`	VARCHAR(30),
