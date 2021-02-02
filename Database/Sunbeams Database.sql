@@ -471,6 +471,7 @@ CREATE TABLE IF NOT EXISTS `Student` (
 	`Std-DOW`	VARCHAR(30),
 	`Std-WReason`	VARCHAR(255),
 	`Std-FatherName`	VARCHAR(30),
+	`Std-Father-CNIC`	INTEGER,
 	`Fee-ID`	INTEGER,
 	`Std-Father-Occupation`	VARCHAR(30),
 	`Std-Financial-Pro-ID`	INTEGER,
