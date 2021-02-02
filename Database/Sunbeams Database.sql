@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `Office Details` (
 );
 CREATE TABLE IF NOT EXISTS `School Detail` (
 	`Scl-ID`	INTEGER NOT NULL AUTO_INCREMENT,
-	`Scl-Name`	INTEGER NOT NULL,
+	`Scl-Name`	VARCHAR(50) NOT NULL,
 	`Scl-Add`	VARCHAR(50),
 	`Scl-Village`	VARCHAR(30),
 	`Province`	VARCHAR(15),
