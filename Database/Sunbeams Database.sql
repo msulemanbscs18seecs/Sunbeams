@@ -476,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `Student` (
 	`Std-Father-Occupation`	VARCHAR(30),
 	`Std-Financial-Pro-ID`	INTEGER,
 	`Std-Family-Income`	INTEGER,
-	`Std-Father-Phone`	INTEGER,
+	`Std-Father-Phone`	VARCHAR(15),
 	`Std-Father-Education`	VARCHAR(30),
 	`Std-House-Add`	VARCHAR(255),
 	`ExRes-ID`	INTEGER,
