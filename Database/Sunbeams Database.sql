@@ -461,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `Examination-Result` (
 CREATE TABLE IF NOT EXISTS `Student` (
 	`Std-id`	INTEGER AUTO_INCREMENT,
 	`Scl-ID`	INTEGER,
-	`Month`	INTEGER,
+	`Month`	VARCHAR(15),
 	`Std-DOA`	VARCHAR(30),
 	`Std-rollno`	INTEGER,
 	`Std-name`	INTEGER,
