@@ -406,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `Student-Financial-Profile` (
 	`Monthly-Fee`	INTEGER,
 	`Sibling-Discount`	INTEGER,
 	`Free-Uniform`	INTEGER,
-	`Free-VARCHAR(30)Books`	INTEGER,
+	`Free-Books`	INTEGER,
 	`First-50`	INTEGER,
 	`OOS`	INTEGER,
 	`Disabled`	VARCHAR(15),
