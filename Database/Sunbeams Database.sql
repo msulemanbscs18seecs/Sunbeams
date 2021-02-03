@@ -80,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`Minus`	INTEGER,
 	`Pay`	INTEGER,
 	`Comments`	VARCHAR(255),
-	`Salary Slip Sent`	VARCHAR(50),
 	`Amount Paid`	VARCHAR(50),
+	`Salary Slip Sent`	VARCHAR(50),
 	PRIMARY KEY(`SS-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Teacher-Or-Staff` (
