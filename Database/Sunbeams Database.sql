@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `Fee Category` (
 	`Cat-Amount-Max`	INTEGER,
 	PRIMARY KEY(`Cat-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Student monthly fee` (
+CREATE TABLE IF NOT EXISTS `Student Monthly Fee` (
 	`Fee-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-ID`	INTEGER,
 	`Monthly-Fee`	INTEGER,
