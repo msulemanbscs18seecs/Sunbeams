@@ -75,12 +75,13 @@ CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`Absent`	INTEGER,
 	`Leave`	INTEGER,
 	`Earned-Salary`	INTEGER,
+	`Travel-Allowance`	INTEGER,
 	`Plus`	INTEGER,
 	`Minus`	INTEGER,
 	`Pay`	INTEGER,
-	`Travel-Allowance`	INTEGER,
-	`Receiving`	INTEGER,
-	`Comments`	VARCHAR(50),
+	`Comments`	VARCHAR(255),
+	`Salary Slip Sent`	VARCHAR(50),
+	`Amount Paid`	VARCHAR(50),
 	PRIMARY KEY(`SS-ID`)
 );
 CREATE TABLE IF NOT EXISTS `Teacher-Or-Staff` (
