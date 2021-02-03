@@ -222,6 +222,7 @@ CREATE TABLE IF NOT EXISTS `School Stock` (
 	`Scl-ID`	INTEGER NOT NULL,
 	`Txtbook-ID`	INTEGER,
 	`Stationary-ID`	INTEGER,
+	`All-Type Of Uniforms-ID`	INTEGER,
 	FOREIGN KEY(`Scl-ID`) REFERENCES `School Detail`(`Scl-ID`),
 	PRIMARY KEY(`Stk-ID`)
 );
