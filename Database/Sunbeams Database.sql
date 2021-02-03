@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS `Sunbeams Database`;
-CREATE TABLE IF NOT EXISTS `I-And-E-Exp` (
+CREATE TABLE IF NOT EXISTS `I And E Exp` (
 	`I-And-E-Exp-ID` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	`Std-Fee-SUM` INTEGER,
 	`Grant-from-HO` INTEGER,
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`Salary Slip Sent`	VARCHAR(50),
 	PRIMARY KEY(`SS-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Teacher-Or-Staff` (
+CREATE TABLE IF NOT EXISTS `Teacher or Staff` (
 	`Tch-St-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Scl-ID`	INTEGER NOT NULL,
 	`Tch-St-Name`	VARCHAR(30),
@@ -222,7 +222,6 @@ CREATE TABLE IF NOT EXISTS `School Stock` (
 	`Scl-ID`	INTEGER NOT NULL,
 	`Txtbook-ID`	INTEGER,
 	`Stationary-ID`	INTEGER,
-	`All-Type Of Uniforms-ID`	INTEGER,
 	FOREIGN KEY(`Scl-ID`) REFERENCES `School Detail`(`Scl-ID`),
 	PRIMARY KEY(`Stk-ID`)
 );
@@ -252,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `Stationary` (
 	FOREIGN KEY(`Stk-ID`) REFERENCES `School Stock`(`Stk-ID`),
 	PRIMARY KEY(`Stationary-ID`)
 );
-CREATE TABLE IF NOT EXISTS `TextBooks` (
+CREATE TABLE IF NOT EXISTS `Textbooks` (
 	`TxtBook-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Stk-ID`	INTEGER NOT NULL,
 	`Nsy-Sc`	INTEGER,
@@ -313,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `TextBooks` (
 	FOREIGN KEY(`Stk-ID`) REFERENCES `School Stock`(`Stk-ID`),
 	PRIMARY KEY(`TxtBook-ID`)
 );
-CREATE TABLE IF NOT EXISTS `All-Type of Uniforms` (
+CREATE TABLE IF NOT EXISTS `All types of Uniforms` (
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Stk-ID`	INTEGER NOT NULL,
 	`Boys-Unifrm-ID`	INTEGER,
@@ -324,7 +323,11 @@ CREATE TABLE IF NOT EXISTS `All-Type of Uniforms` (
 	PRIMARY KEY(`All-Type of Uniforms-ID`)
     
 );
-CREATE TABLE IF NOT EXISTS `Boys-Uniforms` (
+
+ALTER TABLE `School Stock`
+ADD FOREIGN KEY (`All-Type Of Uniforms-ID`) REFERENCES `All types of Unifroms`(`All-Type Of Uniforms-ID`) ON DELETE RESTRICT;
+
+CREATE TABLE IF NOT EXISTS `Boys Uniforms` (
 	`Boys-Unifrm-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL,
 	`Ufrm-Boy-Shrt-18`	INTEGER,
@@ -347,10 +350,10 @@ CREATE TABLE IF NOT EXISTS `Boys-Uniforms` (
 	`Ufrm-Boy-Pnt-32`	INTEGER,
 	`Ufrm-Boy-Pnt-34`	INTEGER,
 	`Ufrm-Boy-Pnt-36`	INTEGER,
-	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All-Type of Uniforms`(`All-Type of Uniforms-ID`),
+	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All types of Uniforms`(`All-Type of Uniforms-ID`),
 	PRIMARY KEY(`Boys-Unifrm-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Girls-Uniforms` (
+CREATE TABLE IF NOT EXISTS `Girls Uniforms` (
 	`Grl-Unfrm-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL,
 	`Unfrm-Grl 18`	INTEGER,
@@ -364,10 +367,10 @@ CREATE TABLE IF NOT EXISTS `Girls-Uniforms` (
 	`Unfrm-Grl 34`	INTEGER,
 	`Unfrm-Grl 36`	INTEGER,
 	`Unfrm-Grl 38`	INTEGER,
-	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All-Type of Uniforms`(`All-Type of Uniforms-ID`),
+	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All types of Uniforms`(`All-Type of Uniforms-ID`),
 	PRIMARY KEY(`Grl-Unfrm-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Others-uniform` (
+CREATE TABLE IF NOT EXISTS `Other Uniforms` (
 	`othr-Unifm-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL,
 	`White`	INTEGER,
@@ -378,10 +381,10 @@ CREATE TABLE IF NOT EXISTS `Others-uniform` (
 	`Woolen Hat`	INTEGER,
 	`Peak-Cap`	INTEGER,
 	`Patti/Sash`	INTEGER,
-	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All-Type of Uniforms`(`All-Type of Uniforms-ID`),
+	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All types of Uniforms`(`All-Type of Uniforms-ID`),
 	PRIMARY KEY(`othr-Unifm-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Swtr` (
+CREATE TABLE IF NOT EXISTS `Sweaters` (
 	`Swtr-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`All-Type of Uniforms-ID`	INTEGER NOT NULL,
 	`S-Jrsy-22`	INTEGER,
@@ -398,10 +401,10 @@ CREATE TABLE IF NOT EXISTS `Swtr` (
 	`S-Button30`	INTEGER,
 	`S-Button32`	INTEGER,
 	`S-Button34`	INTEGER,
-	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All-Type of Uniforms`(`All-Type of Uniforms-ID`),
+	FOREIGN KEY(`All-Type of Uniforms-ID`) REFERENCES `All types of Uniforms`(`All-Type of Uniforms-ID`),
 	PRIMARY KEY(`Swtr-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Student-Financial-Profile` (
+CREATE TABLE IF NOT EXISTS `Student Financial Profile` (
 	`Std-FinPro-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-ID`	INTEGER,
 	`Monthly-Fee`	INTEGER,
@@ -415,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `Student-Financial-Profile` (
 	`Zakat`	INTEGER,
 	PRIMARY KEY(`Std-FinPro-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Fee-Category` (
+CREATE TABLE IF NOT EXISTS `Fee Category` (
 	`Cat-ID`	INTEGER AUTO_INCREMENT,
 	`Cat-Amount-Min`	INTEGER,
 	`Cat-Amount-Max`	INTEGER,
@@ -441,7 +444,7 @@ CREATE TABLE IF NOT EXISTS `Exam` (
 	`Exam-Month`	VARCHAR(30),
 	PRIMARY KEY(`Exam-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Examination-Result` (
+CREATE TABLE IF NOT EXISTS `Examination Result` (
 	`ExRes-ID`	INTEGER AUTO_INCREMENT,
 	`Exam-ID`	INTEGER,
 	`Std-ID`	INTEGER,
@@ -487,11 +490,11 @@ CREATE TABLE IF NOT EXISTS `Student` (
 	`Std-Mother-Education`	VARCHAR(30),
 	`Std-Mother-Occupation`	VARCHAR(30),
 	PRIMARY KEY(`Std-id`),
-	FOREIGN KEY(`Std-Financial-Pro-ID`) REFERENCES `Student-Financial-Profile`(`Std-FinPro-ID`) ON DELETE RESTRICT,
-	FOREIGN KEY(`Fee-ID`) REFERENCES `Fee-Category`(`Cat-ID`) ON DELETE RESTRICT,
-	FOREIGN KEY(`ExRes-ID`) REFERENCES `Examination-Result`(`ExRes-ID`) ON DELETE RESTRICT
+	FOREIGN KEY(`Std-Financial-Pro-ID`) REFERENCES `Student Financial Profile`(`Std-FinPro-ID`) ON DELETE RESTRICT,
+	FOREIGN KEY(`Fee-ID`) REFERENCES `Fee Category`(`Cat-ID`) ON DELETE RESTRICT,
+	FOREIGN KEY(`ExRes-ID`) REFERENCES `Examination Result`(`ExRes-ID`) ON DELETE RESTRICT
 );
-CREATE TABLE IF NOT EXISTS `Project-Type` (
+CREATE TABLE IF NOT EXISTS `Project Type` (
 	`Project-ID`	INTEGER AUTO_INCREMENT,
 	`Project-Name`	VARCHAR(30),
 	`Partner-1`	VARCHAR(30),
@@ -499,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `Project-Type` (
 	`Partner-3`	VARCHAR(30),
 	PRIMARY KEY(`Project-ID`)
 );
-CREATE TABLE IF NOT EXISTS `All-School-Details` (
+CREATE TABLE IF NOT EXISTS `All School Details` (
 	`All-SclDet-ID`	INTEGER AUTO_INCREMENT,
 	`Scl-ID`	INTEGER,
 	FOREIGN KEY(`Scl-ID`) REFERENCES `School Detail`(`Scl-ID`) ON DELETE RESTRICT,
@@ -510,7 +513,7 @@ CREATE TABLE IF NOT EXISTS `Activity` (
 	`Activity-Name`	VARCHAR(30),
 	PRIMARY KEY(`Activity-ID`)
 );
-CREATE TABLE IF NOT EXISTS `All-Pictures` (
+CREATE TABLE IF NOT EXISTS `All Pictures` (
 	`All-Pictures-ID`	INTEGER AUTO_INCREMENT,
 	`Activity-ID`	INTEGER,
 	`Scl-ID`	INTEGER,
