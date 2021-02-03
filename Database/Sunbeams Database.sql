@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `School Detail` (
 );
 CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`SS-ID`	INTEGER NOT NULL AUTO_INCREMENT,
-	`Tch-ID`	INTEGER,
+	`Tch-St-ID`	INTEGER,
 	`Salary-Month`	VARCHAR(15),
 	`Salary-Year`	INTEGER,
 	`Basic-Salary`	INTEGER,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `Salary Slips` (
 	`Comments`	VARCHAR(50),
 	PRIMARY KEY(`SS-ID`)
 );
-CREATE TABLE IF NOT EXISTS `Teacher-OR-Staff` (
+CREATE TABLE IF NOT EXISTS `Teacher-Or-Staff` (
 	`Tch-St-ID`	INTEGER NOT NULL AUTO_INCREMENT,
 	`Scl-ID`	INTEGER NOT NULL,
 	`Tch-St-Name`	VARCHAR(30),
@@ -92,17 +92,17 @@ CREATE TABLE IF NOT EXISTS `Teacher-OR-Staff` (
 	`Tch-Class-Assigned`	VARCHAR(30),
 	`Tch-St-Mob No.`	VARCHAR(15),
 	`Tch-St-Salary`	INTEGER,
-	`Tch-Experience`	VARCHAR(50),
-	`Tch-DOB`	VARCHAR(30),
-	`Tch-Res Add`	VARCHAR(50),
+	`Tch-St-Experience`	VARCHAR(50),
+	`Tch-St-DOB`	VARCHAR(30),
+	`Tch-St-Res Add`	VARCHAR(50),
 	`Matriculation`	VARCHAR(30),
 	`Intermediate`	VARCHAR(30),
 	`Graduation`	VARCHAR(30),
 	`Post-Graduation`	VARCHAR(30),
 	`Time-table`	VARCHAR(30),
-	`Tch-DOJ`	VARCHAR(30),
-	`Tch-Father/Spouse Name`	VARCHAR(30),
-	`Tch-Email`	VARCHAR(30),
+	`Tch-St-DOJ`	VARCHAR(30),
+	`Tch-St-Father/Spouse Name`	VARCHAR(30),
+	`Tch-St-Email`	VARCHAR(30),
 	`SS-ID`	INTEGER,
 	`Off-Id`	INTEGER,
 	FOREIGN KEY(`Off-Id`) REFERENCES `Office Details`(`Off-Id`),
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `Teacher-OR-Staff` (
 );
 
 ALTER TABLE `Salary Slips`
-ADD FOREIGN KEY (`Tch-ID`) REFERENCES `Teacher-OR-Staff`(`Tch-St-ID`) ON DELETE RESTRICT;
+ADD FOREIGN KEY (`Tch-St-ID`) REFERENCES `Teacher-OR-Staff`(`Tch-St-ID`) ON DELETE RESTRICT;
 
 CREATE TABLE IF NOT EXISTS `Donor` (
 	`Donor-ID`	INTEGER NOT NULL AUTO_INCREMENT,
